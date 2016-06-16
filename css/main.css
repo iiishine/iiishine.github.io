@@ -464,7 +464,6 @@ body {
 }
 .main {
   padding-bottom: 150px;
-  background-image: url(images/back.jpg);
 }
 .main-inner {
   margin: 0 auto;
@@ -880,6 +879,7 @@ pre .javascript .function {
   background: #222;
 }
 .site-meta {
+  background-image: url(/images/back.jpg);
   margin: 0;
   text-align: center;
 }
