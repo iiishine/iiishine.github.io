@@ -879,8 +879,8 @@ pre .javascript .function {
   background: #222;
 }
 .site-meta {
-  background-image: url(/images/back.jpg);
   margin: 0;
+  background-color: green;
   text-align: center;
 }
 @media (max-width: 767px) {
