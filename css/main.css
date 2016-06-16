@@ -869,7 +869,7 @@ pre .javascript .function {
   bottom: 40px;
 }
 .header {
-  background: #fff;
+  background: #CCCCCC;
 }
 .header-inner {
   position: relative;
@@ -880,7 +880,6 @@ pre .javascript .function {
 }
 .site-meta {
   margin: 0;
-  background-color: green;
   text-align: center;
 }
 @media (max-width: 767px) {
