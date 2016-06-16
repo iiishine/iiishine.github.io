@@ -472,8 +472,7 @@
 
       
         
-          
-            <p>本内容仅供参考</p>
+          <p>本内容仅供参考</p>
 <h2 id="1-安装Node-js"><a href="#1-安装Node-js" class="headerlink" title="1 安装Node.js"></a>1 安装Node.js</h2><ul>
 <li>下载源码<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://iiishine.sh2.newtouch.<span class="keyword">com</span>/download/software/node-v4.<span class="number">4.5</span>.tar.gz</span><br><span class="line">tar -xzvf node-v4.<span class="number">2.2</span>.tar.gz</span><br><span class="line"><span class="keyword">make</span></span><br><span class="line">sudo <span class="keyword">make</span> install</span><br></pre></td></tr></table></figure>
 </li>
@@ -482,74 +481,11 @@
 <li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="3-搭建本地博客"><a href="#3-搭建本地博客" class="headerlink" title="3 搭建本地博客"></a>3 搭建本地博客</h2><ul>
-<li><p>初始化一枚目录存放博客, 进入</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">echo <span class="string">"export blog=/iiishine/blog"</span>&gt;&gt;<span class="regexp">/etc/</span>profile</span><br><span class="line">source /etc/profile</span><br><span class="line">cd $blog</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>框架安装</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装 Hexo 关于启动服务器的插件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动服务器, 本地查看效果, 如果不指定端口，默认为4000</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>打开 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 查看效果</p>
-<h2 id="4-主题和配置"><a href="#4-主题和配置" class="headerlink" title="4 主题和配置"></a>4 主题和配置</h2><ul>
-<li><p>下载主题：<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip hexo-theme-next-master.zip</span><br><span class="line">mv hexo-theme-next-master $blog/themes/</span><br><span class="line">sed -i <span class="string">"s/next/next/"</span> _config.yml</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>_config.yml 中的其他属性</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title: 网站大标题</span><br><span class="line">subtitle: 网站小标题</span><br><span class="line">description: 你对于自己的描述</span><br><span class="line">author: 昵称</span><br><span class="line">language: zh-Hans（简体中文）</span><br><span class="line">avatar: 头像 (如:<span class="regexp">/images/</span>avatar.jpg, images目录位于source目录下|或者使用url)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>标签,分类，关于 </p>
-<ul>
-<li><p>新增页面</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $blog</span><br><span class="line">hexo <span class="keyword">new</span> page categories</span><br><span class="line">hexo <span class="keyword">new</span> page tags</span><br><span class="line">hexo <span class="keyword">new</span> page about</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改页面文件</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#tags/index.md </span><br><span class="line">title: 标签</span><br><span class="line">date: 2016-06-15 16:31:08</span><br><span class="line">type: "tags"</span><br><span class="line"></span><br><span class="line">#categories/index.md </span><br><span class="line">title: 分类</span><br><span class="line">date: 2016-06-15 16:59:49</span><br><span class="line">type: "categories"</span><br><span class="line"></span><br><span class="line">#about/index.md </span><br><span class="line">title: 关于</span><br><span class="line">date: 2016-06-15 17:36:55</span><br><span class="line">type: about</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改博客文章</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title: 第一个博客</span><br><span class="line">date: <span class="number">2016</span><span class="number">-06</span><span class="number">-15</span> <span class="number">15</span>:<span class="number">10</span>:<span class="number">04</span></span><br><span class="line">tags:</span><br><span class="line">  - hexo</span><br><span class="line">categories: </span><br><span class="line">  - hexo学习</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>部署</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="5-Github设置"><a href="#5-Github设置" class="headerlink" title="5 Github设置"></a>5 Github设置</h2><ul>
-<li>在github.com上新建项目<br>进入参考，点击settings,在 Github Pages 标签下可看到 Your site is published at <a href="http://你的用户名.github.io" target="_blank" rel="external">http://你的用户名.github.io</a>. 这句话。 这时便可直接访问，如我的就是 iiishine.github.io.</li>
-</ul>
-<h2 id="6-将博客部署到Github"><a href="#6-将博客部署到Github" class="headerlink" title="6 将博客部署到Github"></a>6 将博客部署到Github</h2><ul>
-<li><p>安装 hexo 关于 git 的组件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在_config.yml 中为 git 添加配置</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:iiishine/iiishine.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line"># 注意冒号后面要有空格</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>部署</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="7-写博客"><a href="#7-写博客" class="headerlink" title="7 写博客"></a>7 写博客</h2><ul>
-<li>新建博客<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">"第一个博客"</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>$blog/source/_posts/第一个博客.md 直接在此文件中写博客的内容，格式参考markdown格式</p>
-<ul>
-<li><p>部署</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除博客</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf $blog/source/_posts/第一个博客.md</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/15/第一个博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
