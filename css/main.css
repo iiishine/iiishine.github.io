@@ -869,7 +869,7 @@ pre .javascript .function {
   bottom: 40px;
 }
 .header {
-  background: #CCCCCC;
+  background: #fff;
 }
 .header-inner {
   position: relative;
@@ -1664,7 +1664,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #53ff62;
+  background: #570396;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2634,4 +2634,7 @@ body {
   .post-body {
     text-align: justify;
   }
+}
+body {
+  background: url("/images/back.jpg");
 }
