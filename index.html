@@ -370,79 +370,12 @@
 
       
         
-          
-            <p><img src="http://iiishine.sh2.newtouch.com/index.html/image/saltstack.png" alt="Markdown"></p>
-<p>#centos7 安装saltstack#</p>
-<h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><pre><code>安装epel-release和salt-master工具包
-yum install epel-release -y
-yum install salt-master -y
-配置
-vim /etc/salt/master
-    interface: 7.7.1.73
-    file_roots:
-    base:
-        - /srv/salt
-开机自启
-systemctl enable salt-master.service
-启动服务
-systemctl start salt-master.service
-查看端口
-netstat -tunlp | grep python
-ps -ef |grep salt
-关闭防火墙
-systemctl disable firewalld.service
-systemctl stop  iptables.service
-systemctl stop firewalld.service
-</code></pre><h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><pre><code>安装epel-release工具包和salt-minion客户端
-yum install epel-release -y
-yum install salt-minion -y
-配置
-vim /etc/salt/minion
-    master: 7.7.1.73
-    id: iiishine
-开机自启
-systemctl enable salt-minion.service
-启动服务
-systemctl start salt-minion.service
-查看端口
-ps -ef |grep salt
-关闭防火墙
-systemctl disable firewalld.service
-systemctl stop  iptables.service
-systemctl stop firewalld.service
-</code></pre><hr>
-<h2 id="证书认证"><a href="#证书认证" class="headerlink" title="证书认证"></a>证书认证</h2><pre><code>salt-key -L    列出所有密钥
-salt-key -a event    使用id event 接受密钥
-salt-key -d event    删除event编码
-</code></pre><h2 id="写简单sls文件"><a href="#写简单sls文件" class="headerlink" title="写简单sls文件"></a>写简单sls文件</h2><pre><code>mkdir /src/salt/
-[root@iiishine salt]# cat top.sls 
-base:
-  &apos;iiishine&apos;:
-    - iiishine
-[root@iiishine salt]# cat iiishine.sls 
-httpd:
-  pkg:
-    - installed
-
-[root@iiishine salt]# salt &apos;iiishine&apos; state.highstate 
-iiishine:
-----------
-  ID: httpd
-Function: pkg.installed
-  Result: True
- Comment: Package httpd is already installed.
- Started: 11:52:49.071353
-Duration: 1274.314 ms
- Changes:   
-
-Summary
-------------
-Succeeded: 1
-Failed:0
-------------
-Total states run: 1
-</code></pre>
-          
+          <p><img src="http://iiishine.sh2.newtouch.com/index.html/image/saltstack.png" alt="Markdown"><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/20/salt/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
