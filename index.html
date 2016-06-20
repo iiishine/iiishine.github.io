@@ -311,6 +311,184 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/20/salt/" itemprop="url">
+                  salt
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-20T11:56:58+08:00" content="2016-06-20">
+              2016-06-20
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/20/salt/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/20/salt/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/20/salt/" class="leancloud_visitors" data-flag-title="salt">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#centos7 安装saltstat#</p>
+<h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><pre><code>安装epel-release和salt-master工具包
+yum install epel-release -y
+yum install salt-master -y
+配置
+vim /etc/salt/master
+    interface: 7.7.1.73
+    file_roots:
+    base:
+        - /srv/salt
+开机自启
+systemctl enable salt-master.service
+启动服务
+systemctl start salt-master.service
+查看端口
+netstat -tunlp | grep python
+ps -ef |grep salt
+关闭防火墙
+systemctl disable firewalld.service
+systemctl stop  iptables.service
+systemctl stop firewalld.service
+</code></pre><h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><pre><code>安装epel-release工具包和salt-minion客户端
+yum install epel-release -y
+yum install salt-minion -y
+配置
+vim /etc/salt/minion
+    master: 7.7.1.73
+    id: iiishine
+开机自启
+systemctl enable salt-minion.service
+启动服务
+systemctl start salt-minion.service
+查看端口
+ps -ef |grep salt
+关闭防火墙
+systemctl disable firewalld.service
+systemctl stop  iptables.service
+systemctl stop firewalld.service
+</code></pre><hr>
+<h2 id="证书认证"><a href="#证书认证" class="headerlink" title="证书认证"></a>证书认证</h2><pre><code>salt-key -L    列出所有密钥
+salt-key -a event    使用id event 接受密钥
+salt-key -d event    删除event编码
+</code></pre><h2 id="写简单sls文件"><a href="#写简单sls文件" class="headerlink" title="写简单sls文件"></a>写简单sls文件</h2><pre><code>mkdir /src/salt/
+[root@iiishine salt]# cat top.sls 
+base:
+  &apos;iiishine&apos;:
+    - iiishine
+[root@iiishine salt]# cat iiishine.sls 
+httpd:
+  pkg:
+    - installed
+
+[root@iiishine salt]# salt &apos;iiishine&apos; state.highstate 
+iiishine:
+----------
+  ID: httpd
+Function: pkg.installed
+  Result: True
+ Comment: Package httpd is already installed.
+ Started: 11:52:49.071353
+Duration: 1274.314 ms
+ Changes:   
+
+Summary
+------------
+Succeeded: 1
+Failed:0
+------------
+Total states run: 1
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/16/markdown/" itemprop="url">
                   Markdown 语法手册
                 </a>
@@ -574,7 +752,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -591,7 +769,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
