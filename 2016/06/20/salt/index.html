@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="welcome to">
 <meta property="og:description">
 <meta property="og:image" content="http://iiishine.sh2.newtouch.com/index.html/image/saltstack.png">
-<meta property="og:updated_time" content="2016-06-20T04:07:55.952Z">
+<meta property="og:updated_time" content="2016-06-20T09:45:30.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7 安装saltstack">
 <meta name="twitter:description">
@@ -372,6 +372,7 @@
 <h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><pre><code>安装epel-release和salt-master工具包
 yum install epel-release -y
 yum install salt-master -y
+yum install python-jinja2 -y
 配置
 vim /etc/salt/master
     interface: 7.7.1.73
@@ -392,6 +393,7 @@ systemctl stop firewalld.service
 </code></pre><h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><pre><code>安装epel-release工具包和salt-minion客户端
 yum install epel-release -y
 yum install salt-minion -y
+yum install python-jinja2 -y
 配置
 vim /etc/salt/minion
     master: 7.7.1.73
