@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="welcome to">
 <meta property="og:description">
 <meta property="og:image" content="http://iiishine.sh2.newtouch.com/index.html/image/saltstack.png">
-<meta property="og:updated_time" content="2016-06-20T09:45:30.701Z">
+<meta property="og:updated_time" content="2016-06-20T09:47:31.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7 安装saltstack">
 <meta name="twitter:description">
@@ -409,9 +409,9 @@ systemctl disable firewalld.service
 systemctl stop  iptables.service
 systemctl stop firewalld.service
 </code></pre><hr>
-<h2 id="证书认证"><a href="#证书认证" class="headerlink" title="证书认证"></a>证书认证</h2><pre><code>salt-key -L    列出所有密钥
-salt-key -a event    使用id event 接受密钥
-salt-key -d event    删除event编码
+<h2 id="证书认证"><a href="#证书认证" class="headerlink" title="证书认证"></a>证书认证</h2><pre><code>salt-key -L            列出所有密钥
+salt-key -a iiishine    使用id event 接受密钥
+salt-key -d iiishine    删除event编码
 </code></pre><h2 id="写简单sls文件"><a href="#写简单sls文件" class="headerlink" title="写简单sls文件"></a>写简单sls文件</h2><pre><code>mkdir /src/salt/
 [root@iiishine salt]# cat top.sls 
 base:
