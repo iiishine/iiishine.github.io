@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="saltstack,自动化运维," />
 
 
 
@@ -104,17 +104,16 @@
 
 <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown 语法手册">
-<meta property="og:url" content="http://yoursite.com/2016/06/16/markdown/index.html">
+<meta property="og:title" content="基于redis，salt的Return流程">
+<meta property="og:url" content="http://yoursite.com/2016/06/21/salt-redis/index.html">
 <meta property="og:site_name" content="welcome to">
 <meta property="og:description">
-<meta property="og:image" content="http://iiishine.sh2.newtouch.com/index.html/image/mark.png">
-<meta property="og:image" content="http://iiishine.sh2.newtouch.com/index.html/image/markdown.png">
-<meta property="og:updated_time" content="2016-06-16T07:46:42.241Z">
+<meta property="og:image" content="http://iiishine.sh2.newtouch.com/index.html/image/redis.jpg">
+<meta property="og:updated_time" content="2016-06-21T03:07:20.691Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown 语法手册">
+<meta name="twitter:title" content="基于redis，salt的Return流程">
 <meta name="twitter:description">
-<meta name="twitter:image" content="http://iiishine.sh2.newtouch.com/index.html/image/mark.png">
+<meta name="twitter:image" content="http://iiishine.sh2.newtouch.com/index.html/image/redis.jpg">
 
 
 
@@ -132,7 +131,7 @@
   };
 </script>
 
-  <title> Markdown 语法手册 | welcome to </title>
+  <title> 基于redis，salt的Return流程 | welcome to </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -312,7 +311,7 @@
             
             
               
-                Markdown 语法手册
+                基于redis，salt的Return流程
               
             
           </h1>
@@ -324,8 +323,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-16T10:58:54+08:00" content="2016-06-16">
-              2016-06-16
+            <time itemprop="dateCreated" datetime="2016-06-21T10:56:39+08:00" content="2016-06-21">
+              2016-06-21
             </time>
           </span>
 
@@ -335,8 +334,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/16/markdown/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/16/markdown/" itemprop="commentsCount"></span>
+                <a href="/2016/06/21/salt-redis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/21/salt-redis/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -346,7 +345,7 @@
 
           
           
-             <span id="/2016/06/16/markdown/" class="leancloud_visitors" data-flag-title="Markdown 语法手册">
+             <span id="/2016/06/21/salt-redis/" class="leancloud_visitors" data-flag-title="基于redis，salt的Return流程">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -368,53 +367,14 @@
       
 
       
-        <p><img src="http://iiishine.sh2.newtouch.com/index.html/image/mark.png" alt="Markdown"><br><a id="more"></a></p>
-<h2 id="Headers-标题："><a href="#Headers-标题：" class="headerlink" title="Headers 标题："></a>Headers 标题：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#  H1</span><br><span class="line">##  H2</span><br><span class="line">###  H3</span><br></pre></td></tr></table></figure>
-<h2 id="Emphasis-文本强调："><a href="#Emphasis-文本强调：" class="headerlink" title="Emphasis 文本强调："></a>Emphasis 文本强调：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*斜体* or _强调_</span><br><span class="line">**加粗** or __加粗__</span><br><span class="line">***粗斜体*** or ___粗斜体__</span><br></pre></td></tr></table></figure>
-<p>如果你的 <em> 和 _ 两边都有空白的话，它们就只会被当成普通的符号：这是一段</em> 文本强调 <em>的说明示例。<br>如果要在文字前后直接插入普通的星号或底线，你可以用反斜线（转义符）：\</em>this text is surrounded by literal asterisks*</p>
-<h2 id="Lists-列表："><a href="#Lists-列表：" class="headerlink" title="Lists 列表："></a>Lists 列表：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">无序列表：</span><br><span class="line">* 无序列表</span><br><span class="line">* 子项</span><br><span class="line"> </span><br><span class="line">+ 无序列表</span><br><span class="line">+ 子项</span><br><span class="line"> </span><br><span class="line">- 无序列表</span><br><span class="line">- 子项</span><br><span class="line"> </span><br><span class="line">有序列表：</span><br><span class="line">1. 第一行</span><br><span class="line">2. 第二行</span><br><span class="line"> </span><br><span class="line">1. 第一行</span><br><span class="line">- 第二行</span><br></pre></td></tr></table></figure>
-<h2 id="Links-连接"><a href="#Links-连接" class="headerlink" title="Links 连接"></a>Links 连接</h2><pre><code>Inline-style 内嵌方式：
-[link text](https://www.google.com &quot;title text&quot;)
-
-Reference-style 引用方式：
-[link text][id]
-[id]: https://www.mozilla.org &quot;title text&quot;
-
-Relative reference to a repository file 引用存储文件：
-[link text](../path/file/readme.text &quot;title text&quot;)
-
-还能这样使用：
-[link text][]
-[link text]: http://www.reddit.com
-
-Email 邮件：
-&lt;example@example.com&gt;
-</code></pre><h2 id="Images-图片："><a href="#Images-图片：" class="headerlink" title="Images 图片："></a>Images 图片：</h2><pre><code>Inline-style 内嵌方式：
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png &quot;title text&quot;)
-
-Reference-style 引用方式：
-![alt text][logo]
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png &quot;title text&quot;
-</code></pre><h2 id="代码和语法高亮："><a href="#代码和语法高亮：" class="headerlink" title="代码和语法高亮："></a>代码和语法高亮：</h2><pre><code>标记一小段行内代码：
-本文是一篇介绍`Markdown`的语法的文章
-
-如果高亮的内容包含`号，可以这样写：
-`` `包裹起来` ``
-</code></pre><h2 id="换行："><a href="#换行：" class="headerlink" title="换行："></a>换行：</h2><pre><code>在一行的结尾处加上2个或2个以上的空格，也可以使用&lt;/br&gt;标签
-</code></pre><h2 id="水平分割线："><a href="#水平分割线：" class="headerlink" title="水平分割线："></a>水平分割线：</h2><pre><code>***
-* * *
-- - -
-</code></pre><h2 id="转义符-反斜杠-："><a href="#转义符-反斜杠-：" class="headerlink" title="转义符(反斜杠)："></a>转义符(反斜杠)：</h2><pre><code>Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号，
-例如：如果你想要用星号加在文字旁边的方式来做出强调效果
-你可以在星号的前面加上反斜杠： \*literal asterisks\*
-
-Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：
-\反斜杠  `反引号  *星号  _下划线  {}花括号  []方括号  ()括弧  #井字号  +加号  -减号  .英文句 !感叹号
-</code></pre><h2 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h2><pre><code>Markdown也支持传统的HTML标签。
-比如一个链接，你不太喜欢Markdown的写法，也可以直接写成&lt;a href=&quot;http://www.baidu.com&quot;&gt;百度&lt;/a&gt;
-&lt;!--more--&gt; 表示此处开始阅读全文
-</code></pre><p><img src="http://iiishine.sh2.newtouch.com/index.html/image/markdown.png" alt=""></p>
-<p>Markdown官网：<a href="http://daringfireball.net/projects/markdown/" title="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">http://daringfireball.net/projects/markdown/</a><br>参考资料：<a href="http://markdown.tw/" title="http://markdown.tw/" target="_blank" rel="external">http://markdown.tw/</a></p>
+        <p><img src="http://iiishine.sh2.newtouch.com/index.html/image/redis.jpg" alt="Markdown"><br><a id="more"></a></p>
+<p>#基于redis，salt的Return流程</p>
+<p>##salt的Return流程</p>
+<p>###minion配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/salt/minion</span><br><span class="line">    #redis数据库</span><br><span class="line">    redis.db: &apos;db0&apos;</span><br><span class="line">    #redis主机(ip地址和域名都行</span><br><span class="line">    redis.host: &apos;7.7.1.73&apos;</span><br><span class="line">    #redis端口</span><br><span class="line">    redis.port: 6379</span><br><span class="line">service salt-minion restart</span><br></pre></td></tr></table></figure></p>
+<p>###在salt服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@iiishine ~]# salt &apos;iiishine&apos; cmd.run &apos;hostname&apos; --return redis</span><br><span class="line">iiishine:</span><br><span class="line">    centos7</span><br><span class="line">[root@iiishine salt]# redis-cli monitor</span><br><span class="line">OK</span><br><span class="line">1466476690.563958 [0 7.7.0.137:44574] &quot;SELECT&quot; &quot;db0&quot;</span><br></pre></td></tr></table></figure></p>
+<p>###安装redis客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y python-redis</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装redis服务器"><a href="#安装redis服务器" class="headerlink" title="安装redis服务器"></a>安装redis服务器</h2><h3 id="源码安装"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">    wget http://iiishine.sh2.newtouch.com/download/software/redis-3.2.0.tar.gz</span><br><span class="line">    tar -xvf redis-3.2.0.tar.gz</span><br><span class="line">    cd redis-3.2.0</span><br><span class="line">    ./runtest</span><br><span class="line">    make</span><br><span class="line">    </span><br><span class="line">    ## 启动redis ##</span><br><span class="line">    src/redis-server &amp;</span><br><span class="line">    </span><br><span class="line">    ## 关闭redis ##</span><br><span class="line">    src/redis-cli shutdown</span><br><span class="line">    </span><br><span class="line">    ## 测试redis ##</span><br><span class="line">    [root@iiishine redis-3.2.0]# src/redis-cli </span><br><span class="line">    127.0.0.1:6379&gt; set foo bar1</span><br><span class="line">    OK</span><br><span class="line">    127.0.0.1:6379&gt; get foo</span><br><span class="line">    &quot;bar1&quot;</span><br><span class="line">    127.0.0.1:6379&gt;</span><br><span class="line">``` </span><br><span class="line">### yum 安装 ###</span><br><span class="line">```shell</span><br><span class="line">    或者直接</span><br><span class="line">    yum install -y redis</span><br></pre></td></tr></table></figure>
+<h3 id="redis命令"><a href="#redis命令" class="headerlink" title="redis命令"></a>redis命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; ping 测试是否连通</span><br><span class="line">127.0.0.1:6379&gt; info 服务器基本信息</span><br><span class="line">127.0.0.1:6379&gt; keys *  取出当前匹配的所有key</span><br><span class="line">127.0.0.1:6379&gt; select db0 数据库切换</span><br><span class="line">127.0.0.1:6379&gt; dbsize 当前数据库中key的数量</span><br><span class="line">127.0.0.1:6379&gt; config get 获取服务器的参数配置</span><br><span class="line">127.0.0.1:6379&gt; flushdb 清空当前数据库</span><br><span class="line">127.0.0.1:6379&gt; flushall 清除所有数据库</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -452,7 +412,9 @@ Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的�
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/saltstack/" rel="tag">#saltstack</a>
+          
+            <a href="/tags/自动化运维/" rel="tag">#自动化运维</a>
           
         </div>
       
@@ -461,17 +423,13 @@ Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/15/第一个博客/" rel="next" title="第一个博客">
-                <i class="fa fa-chevron-left"></i> 第一个博客
+              <a href="/2016/06/20/salt/" rel="next" title="centos7 安装saltstack">
+                <i class="fa fa-chevron-left"></i> centos7 安装saltstack
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/20/salt/" rel="prev" title="centos7 安装saltstack">
-                centos7 安装saltstack <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -497,8 +455,8 @@ Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/16/markdown/"
-           data-title="Markdown 语法手册" data-url="http://yoursite.com/2016/06/16/markdown/">
+      <div class="ds-thread" data-thread-key="2016/06/21/salt-redis/"
+           data-title="基于redis，salt的Return流程" data-url="http://yoursite.com/2016/06/21/salt-redis/">
       </div>
     
   </div>
@@ -600,7 +558,7 @@ Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Headers-标题："><span class="nav-number">1.</span> <span class="nav-text">Headers 标题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Emphasis-文本强调："><span class="nav-number">2.</span> <span class="nav-text">Emphasis 文本强调：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lists-列表："><span class="nav-number">3.</span> <span class="nav-text">Lists 列表：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Links-连接"><span class="nav-number">4.</span> <span class="nav-text">Links 连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Images-图片："><span class="nav-number">5.</span> <span class="nav-text">Images 图片：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码和语法高亮："><span class="nav-number">6.</span> <span class="nav-text">代码和语法高亮：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#换行："><span class="nav-number">7.</span> <span class="nav-text">换行：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#水平分割线："><span class="nav-number">8.</span> <span class="nav-text">水平分割线：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转义符-反斜杠-："><span class="nav-number">9.</span> <span class="nav-text">转义符(反斜杠)：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充："><span class="nav-number">10.</span> <span class="nav-text">补充：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装redis服务器"><span class="nav-number">1.</span> <span class="nav-text">安装redis服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源码安装"><span class="nav-number">1.1.</span> <span class="nav-text">源码安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis命令"><span class="nav-number">1.2.</span> <span class="nav-text">redis命令</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
