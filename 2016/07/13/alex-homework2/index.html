@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python,alex教程," />
 
 
 
@@ -102,15 +102,18 @@
 
 
 
-<meta name="description" content="脑袋空没问题,关键是别进水:P">
-<meta property="og:type" content="website">
-<meta property="og:title" content="welcome to">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description">
+<meta property="og:type" content="article">
+<meta property="og:title" content="alex 视频学习作业2">
+<meta property="og:url" content="http://yoursite.com/2016/07/13/alex-homework2/index.html">
 <meta property="og:site_name" content="welcome to">
-<meta property="og:description" content="脑袋空没问题,关键是别进水:P">
+<meta property="og:description">
+<meta property="og:image" content="http://iiishine.sh2.newtouch.com/index.html/image/python.jpg">
+<meta property="og:updated_time" content="2016-07-13T09:05:46.145Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="welcome to">
-<meta name="twitter:description" content="脑袋空没问题,关键是别进水:P">
+<meta name="twitter:title" content="alex 视频学习作业2">
+<meta name="twitter:description">
+<meta name="twitter:image" content="http://iiishine.sh2.newtouch.com/index.html/image/python.jpg">
 
 
 
@@ -128,7 +131,7 @@
   };
 </script>
 
-  <title> welcome to </title>
+  <title> alex 视频学习作业2 | welcome to </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -159,9 +162,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,9 +289,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -310,10 +311,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/07/13/alex-homework2/" itemprop="url">
-                  alex 视频学习作业2
-                </a>
+                alex 视频学习作业2
               
             
           </h1>
@@ -369,494 +367,84 @@
       
 
       
-        
-          <p><img src="http://iiishine.sh2.newtouch.com/index.html/image/python.jpg" alt="Markdown"><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/13/alex-homework2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+        <p><img src="http://iiishine.sh2.newtouch.com/index.html/image/python.jpg" alt="Markdown"><br><a id="more"></a></p>
+<h1 id="alex视频学习作业"><a href="#alex视频学习作业" class="headerlink" title="alex视频学习作业"></a>alex视频学习作业</h1><p>##　需求：从数据库获取商品菜单，可供用户选购</p>
+<p>cat db_list.py<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> MySQLdb <span class="keyword">as</span> mysql</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="comment">#list_product=[]</span></span><br><span class="line">list_product1=[]</span><br><span class="line">list_product2=[]</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">'utf-8'</span>)</span><br><span class="line">zabbixip=<span class="string">'127.0.0.1'</span></span><br><span class="line">conn=mysql.connect(host=zabbixip,port=<span class="number">3306</span>,user=<span class="string">'root'</span>,passwd=<span class="string">'123123'</span>,db=<span class="string">'test'</span>,charset=<span class="string">'utf8'</span>)</span><br><span class="line">cursor=conn.cursor()</span><br><span class="line"><span class="comment">#cursor.execute("select * from test.test")</span></span><br><span class="line"><span class="comment">#result=cursor.fetchall()</span></span><br><span class="line"><span class="comment">#len_list=len(result)</span></span><br><span class="line">cursor.execute(<span class="string">'select name from test.test'</span>)</span><br><span class="line">result1=cursor.fetchall()</span><br><span class="line">cursor.execute(<span class="string">'select value from test.test'</span>)</span><br><span class="line">result2=cursor.fetchall()</span><br><span class="line">len_list1=len(result1)</span><br><span class="line"></span><br><span class="line"><span class="comment">#def list_productf():</span></span><br><span class="line"><span class="comment">#	for i in  range(len_list):</span></span><br><span class="line"><span class="comment">#		for j in range(1,len(result[i])): </span></span><br><span class="line"><span class="comment">#			list_product.append(result[i][j].encode("ascii"))</span></span><br><span class="line"><span class="comment">#	return list_product</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">list_productf</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(len_list1):</span><br><span class="line">		list_product1.append(result1[i][<span class="number">0</span>].encode(<span class="string">"ascii"</span>))</span><br><span class="line">		list_product2.append(int(result2[i][<span class="number">0</span>].encode(<span class="string">"ascii"</span>)))</span><br><span class="line">		<span class="comment">#print result1[i][0]</span></span><br><span class="line">	<span class="keyword">return</span> list_product1,list_product2</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">[root@iiishine list_shopping]<span class="comment"># cat shop.py </span></span><br><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> db_list</span><br><span class="line">products=[]</span><br><span class="line">prize=[]</span><br><span class="line"><span class="comment">#list_product_all=db_list.list_productf()</span></span><br><span class="line">products,prize=db_list.list_productf()</span><br><span class="line"><span class="comment">#print list_product_all</span></span><br><span class="line"><span class="comment">#for i in range(0,2*db_list.len_list,2):</span></span><br><span class="line"><span class="comment">#        products.append(list_product_all[i])</span></span><br><span class="line"><span class="comment">#for i in range(1,2*db_list.len_list,2):</span></span><br><span class="line"><span class="comment">#        prize.append(int(list_product_all[i]))</span></span><br><span class="line"><span class="comment">#products=['car','bag','eggs','iphone','xiaomi','hp','pan' ]</span></span><br><span class="line"><span class="comment">#prize=[100000,20000,10,5888,899,4000,5]</span></span><br><span class="line">shop_list=[]</span><br><span class="line">shop_list_prize=[]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">all</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="keyword">print</span> <span class="string">"\033[33m follow are  all products,please choose one to buy~ \033[0m"</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> products:</span><br><span class="line">		<span class="keyword">print</span> <span class="string">"\033[35m \t%s\t$%d \033[0m"</span> %(i,prize[products.index(i)])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">shoplist</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="keyword">print</span> <span class="string">"\033[34m you have bought these things: \033[0m"</span> </span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> shop_list:</span><br><span class="line">		<span class="keyword">print</span> <span class="string">"\033[35m \t\t%s\t$%d \033[0m"</span> %(i,shop_list_prize[shop_list.index(i)])</span><br><span class="line">	</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		salary=int(raw_input(<span class="string">"please input you salary: $ "</span>))</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">except</span> ValueError:</span><br><span class="line">		<span class="keyword">print</span> <span class="string">"\033[33m please input a int number,not string,thanks! \033[0m"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">	choice= raw_input(<span class="string">"\033[33m please input name to buy~or (all/shoplist/exit) \033[0m "</span>)</span><br><span class="line">	<span class="keyword">if</span> choice == <span class="string">"exit"</span>:</span><br><span class="line">		shoplist()</span><br><span class="line">		sys.exit()</span><br><span class="line">	<span class="keyword">if</span> choice == <span class="string">"all"</span>:</span><br><span class="line">		all()</span><br><span class="line">	<span class="keyword">if</span> choice == <span class="string">"shoplist"</span>:</span><br><span class="line">		shoplist()</span><br><span class="line">	<span class="keyword">if</span> choice <span class="keyword">in</span> products:</span><br><span class="line">		choice_prod_index=products.index(choice)</span><br><span class="line">		choice_prize=prize[choice_prod_index]</span><br><span class="line">		<span class="keyword">if</span> salary &gt;= choice_prize:</span><br><span class="line">			shop_list.append(choice)	</span><br><span class="line">			shop_list_prize.append(choice_prize)</span><br><span class="line">			salary=salary-choice_prize</span><br><span class="line">			shoplist()</span><br><span class="line">			<span class="keyword">print</span> <span class="string">"\033[36m your salary left: $ %d\033[0m"</span> %salary</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="keyword">if</span> salary &lt; min(prize):</span><br><span class="line">				<span class="keyword">print</span> <span class="string">"\033[38m sorry,rest of your salary can't buy anything ~\033[0m"</span></span><br><span class="line">				shoplist()</span><br><span class="line">				sys.exit()</span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				<span class="keyword">print</span> <span class="string">"\033[38m sorry,you can't afford this product,please choose other ones! \033[0m"</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/13/alex-homework/" itemprop="url">
-                  alex 视频作业
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-13T15:42:40+08:00" content="2016-07-13">
-              2016-07-13
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/python/" rel="tag">#python</a>
           
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/13/alex-homework/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/13/alex-homework/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/13/alex-homework/" class="leancloud_visitors" data-flag-title="alex 视频作业">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
+            <a href="/tags/alex教程/" rel="tag">#alex教程</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p><img src="http://iiishine.sh2.newtouch.com/index.html/image/python.jpg" alt="Markdown"><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/13/alex-homework/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/13/alex-homework/" rel="next" title="alex 视频作业">
+                <i class="fa fa-chevron-left"></i> alex 视频作业
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/21/salt-redis/" itemprop="url">
-                  基于redis，salt的Return流程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-21T10:56:39+08:00" content="2016-06-21">
-              2016-06-21
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/21/salt-redis/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/21/salt-redis/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/21/salt-redis/" class="leancloud_visitors" data-flag-title="基于redis，salt的Return流程">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。<br>redis是一个key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)、zset(sorted set –有序集合)和hash（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。<br>Redis 是一个高性能的key-value数据库。 redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部 分场合可以对关系数据库起到很好的补充作用。它提供了Java，C/C++，C#，PHP，JavaScript，Perl，Object-C，Python，Ruby，Erlang等客户端，使用很方便。<br><img src="http://iiishine.sh2.newtouch.com/index.html/image/redis.jpg" alt="Markdown"><br><!--lang: python--><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/21/salt-redis/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
+
+    <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2016/07/13/alex-homework2/"
+     data-title="alex 视频学习作业2"
+     data-content=""
+     data-url="http://yoursite.com/2016/07/13/alex-homework2/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
-  
-  
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
 
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/20/salt/" itemprop="url">
-                  centos7 安装saltstack
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-20T11:56:58+08:00" content="2016-06-20">
-              2016-06-20
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/20/salt/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/20/salt/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/20/salt/" class="leancloud_visitors" data-flag-title="centos7 安装saltstack">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://iiishine.sh2.newtouch.com/index.html/image/saltstack.png" alt="Markdown"><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/20/salt/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/16/markdown/" itemprop="url">
-                  Markdown 语法手册
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-16T10:58:54+08:00" content="2016-06-16">
-              2016-06-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/16/markdown/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/16/markdown/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/16/markdown/" class="leancloud_visitors" data-flag-title="Markdown 语法手册">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://iiishine.sh2.newtouch.com/index.html/image/mark.png" alt="Markdown"><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/16/markdown/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -864,6 +452,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/13/alex-homework2/"
+           data-title="alex 视频学习作业2" data-url="http://yoursite.com/2016/07/13/alex-homework2/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -883,8 +479,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://iiishine.sh2.newtouch.com/index.html/image/icon.png"
@@ -945,6 +550,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#alex视频学习作业"><span class="nav-number">1.</span> <span class="nav-text">alex视频学习作业</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1048,6 +664,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
